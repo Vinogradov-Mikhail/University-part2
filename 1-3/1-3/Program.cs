@@ -9,7 +9,7 @@ namespace _1_3
     class Program
     {
         // bubble sort
-        public static void bubble(int[] array)
+        public static void Bubble(int[] array)
         {
             for (int i = 0; i < array.Length; ++i)
             {
@@ -26,7 +26,7 @@ namespace _1_3
         }
         
         // funvtion for printing array
-        public static void printArray(int[] array)
+        public static void PrintArray(int[] array)
         {
             for(int i = 0; i < array.Length; ++i)
             {
@@ -37,8 +37,8 @@ namespace _1_3
         static void Main(string[] args)
         {
             int[] array = { 1, 5, 32, 2, 8, 3, 1 };
-            bubble(array);
-            printArray(array);
+            Bubble(array);
+            PrintArray(array);
         }
     }
 }
