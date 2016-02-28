@@ -10,10 +10,12 @@ namespace List
     {
         private static int length = 50;
         private int[] arrayList = new int[length];
+        
         /// <summary>
         /// count elemnts in array list
         /// </summary>
         private int count;
+        
         /// <summary>
         /// add element
         /// </summary>
@@ -25,6 +27,7 @@ namespace List
                 arrayList[++count] = value;
             }
         }
+        
         /// <summary>
         /// checking list is empty or not
         /// </summary>
@@ -33,6 +36,7 @@ namespace List
         {
             return (count != -1);
         }
+        
         /// <summary>
         /// show all elements
         /// </summary>
@@ -43,6 +47,7 @@ namespace List
                 Console.Write(arrayList[i] + " ");
             }
         }
+        
         /// <summary>
         /// delete element from our position 
         /// </summary>
@@ -58,12 +63,14 @@ namespace List
                 count--;
             }
         }
-
-
+        
+        /// <summary>
+        /// get amount elements of list 
+        /// </summary>
+        /// <returns></returns>
         public int GetLength()
         {
             return count;
         }
-
     }
 }
