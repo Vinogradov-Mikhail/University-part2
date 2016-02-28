@@ -12,6 +12,7 @@ namespace List
         /// list which element it is array
         /// </summary>
         private ArrayList list = new ArrayList();
+        
         /// <summary>
         /// add element in list
         /// </summary>
@@ -20,6 +21,7 @@ namespace List
         {
             list.Add(value);
         }
+        
         /// <summary>
         /// delete all list
         /// </summary>
@@ -30,6 +32,7 @@ namespace List
                 list.RemoveAt(0);
             }
         }
+        
         /// <summary>
         /// print all list
         /// </summary>
@@ -41,6 +44,5 @@ namespace List
             }
             else Console.WriteLine(" List is empty");
         }
-
     }
 }
