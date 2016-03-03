@@ -167,7 +167,7 @@ namespace Calculator
                 }
             }
         }
-        private Element head = new Element();
+        private Element head = null;
         private int _count;
 
         /// <summary>
@@ -185,17 +185,7 @@ namespace Calculator
         /// <param name="value"></param>
         public void Push(int value)
         {
-            if (_count == -1)
-            {
-                head.Value = value;
-            }
-            else
-            {
-                Element tmp = new Element();
-                tmp.Value = value;
-                tmp.Next = head;
-                head = tmp;
-            }
+            head = new Element(value, head);
             ++_count;
         }
 
