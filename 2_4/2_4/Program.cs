@@ -132,9 +132,10 @@ namespace Calculator
             private int _value;
             private Element next;
 
-            public Element()
+            public Element(int value = 0, Element next = null)
             {
-                next = null;
+                this.value = value;
+                this.next = next;
             }
             /// <summary>
             /// function for get or write value from element of stack
