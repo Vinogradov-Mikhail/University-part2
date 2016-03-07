@@ -5,8 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace HashTable
-{
-
+{ 
     public class Hash
     {
         private static int N = 1000;
