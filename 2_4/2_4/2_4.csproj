@@ -46,6 +46,7 @@
     <Compile Include="IStack.cs" />
     <Compile Include="Calculator.cs" />
     <Compile Include="List.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Stack.cs" />
   </ItemGroup>

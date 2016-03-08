@@ -19,23 +19,23 @@ namespace CalculatorNamespace
             /// <summary>
             /// constructor for stack element
             /// </summary>
-            /// <param name="_value"></param>
+            /// <param name="value"></param>
             /// <param name="next"></param>
-            public Element(int _value = 0, Element next = null)
+            public Element(int value = 0, Element next = null)
             {
-                this.Value = _value;
+                this.Value = value;
                 this.Next = next;
             }
         }
         private Element head = null;// new Element();
-        private int _count;
+        private int count;
 
         /// <summary>
         /// stack constructor 
         /// </summary>
         public Stack()
         {
-            _count = -1;
+            count = -1;
         }
 
         /// <summary>
@@ -45,7 +45,7 @@ namespace CalculatorNamespace
         public void Push(int value)
         {
             head = new Element(value, head);
-            ++_count;
+            ++count;
         }
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace CalculatorNamespace
             }
             int tmp = head.Value;
             head = head.Next;
-            --_count;
+            --count;
             return tmp;
         }
 

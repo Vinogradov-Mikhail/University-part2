@@ -10,7 +10,7 @@ namespace CalculatorNamespace
     {
         class ArrayList
         {
-            private static int length = 50;
+            private const int length = 50;
             private int[] arrayList = new int[length];
 
             /// <summary>
@@ -39,12 +39,12 @@ namespace CalculatorNamespace
             }
 
             /// <summary>
-            /// checking list is empty or not
+            /// check have list elements or no
             /// </summary>
             /// <returns></returns>
-            public bool ItIsNotFree()
+            public bool IsEmpty()
             {
-                return (count != -1);
+                return count == -1;
             }
 
             /// <summary>
@@ -64,14 +64,9 @@ namespace CalculatorNamespace
             /// <param name="index"></param>
             public int Pop()
             {
-                if (ItIsNotFree())
+                if (count != -1)
                 {
                     int tmp = arrayList[count];
-                    if (count != length - 1)
-                    {
-                        arrayList[count] = arrayList[count + 1];
-                    }
-                    else arrayList[count] = 0;
                     --count;
                     return tmp;
                 }
@@ -106,7 +101,7 @@ namespace CalculatorNamespace
         /// </summary>
         public void Print()
         {
-            if (list.ItIsNotFree())
+            if (!list.IsEmpty())
             {
                 list.ShowElement();
             }

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace CalculatorNamespace
 {
+    /// <summary>
+    /// calculator for two numbers. Numbers push in stack.
+    /// </summary>
     public class Calculator
     {
         private IStack stack;
@@ -13,10 +16,10 @@ namespace CalculatorNamespace
         /// <summary>
         /// constructor for calculator
         /// </summary>
-        /// <param name="tmp"></param>
-        public Calculator(IStack tmp)
+        /// <param name="calc"></param>
+        public Calculator(IStack calc)
         {
-            stack = tmp;
+            stack = calc;
         }
 
         /// <summary>
@@ -60,7 +63,14 @@ namespace CalculatorNamespace
         /// </summary>
         public void Divide()
         {
-            int result = stack.Pop() / stack.Pop();
+            int numOne = stack.Pop();
+            int numTwo = stack.Pop();
+            if(numTwo == 0)
+            {
+                Console.WriteLine("You can not do it!!!!!!!!!");
+                return;
+            }
+            int result = numOne / numTwo;
             stack.Push(result);
         }
 
@@ -70,21 +80,6 @@ namespace CalculatorNamespace
         public int Result()
         {
             return stack.Pop();
-        }
-    }
-
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            IStack tmp;
-            //tmp = new List();
-            tmp = new Stack();
-            Calculator calc = new Calculator(tmp);
-            calc.AddElement(5);
-            calc.AddElement(9);
-            calc.Divide();
-            Console.WriteLine(calc.Result());
         }
     }
 }

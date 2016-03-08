@@ -41,6 +41,10 @@ namespace CalculatorNamespace.Tests
             calc.AddElement(5);
             calc.Divide();
             Assert.AreEqual(5, calc.Result());
+            calc.AddElement(0);
+            calc.AddElement(5);
+            calc.Divide();
+            Assert.AreEqual(0, calc.Result());
         }
 
         [TestMethod]

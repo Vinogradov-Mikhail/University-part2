@@ -6,10 +6,13 @@ using System.Threading.Tasks;
 
 namespace CalculatorNamespace
 {
+    /// <summary>
+    /// interface for stack
+    /// </summary>
     public interface IStack
     {
         /// <summary>
-        /// add element in list
+        /// add element in stack
         /// </summary>
         /// <param name="value"></param>
         void Push(int value);
