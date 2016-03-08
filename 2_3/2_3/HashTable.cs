@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace HashTable
 { 
+    /// <summary>
+    /// class for making hashtable
+    /// </summary>
     public class Hash
     {
-        private static int N = 1000;
+        private const int N = 1000;
         private List[] hash = new List[N];
 
         /// <summary>
@@ -27,7 +30,7 @@ namespace HashTable
         /// </summary>
         /// <param name="element"></param>
         /// <returns></returns>
-        public int hashFunction(string element)
+        private int HashFunction(string element)
         {
             int symb = 0;
             for (int i = 0; i < element.Length; i++)
@@ -44,33 +47,25 @@ namespace HashTable
         /// <param name="element"></param>
         public void Add(string element)
         {
-            hash[hashFunction(element)].Push(element);
+            hash[HashFunction(element)].Push(element);
         }
 
         /// <summary>
         /// delete element from hashtable
         /// </summary>
         /// <param name="element"></param>
-        public void Delete(string element)
+        public bool Delete(string element)
         {
-            if (hash[hashFunction(element)].Pop(element) != "")
-            {
-                Console.WriteLine("Delete");
-            }
-            else Console.WriteLine("Not found");
+            return (hash[HashFunction(element)].Pop(element) != "");
         }
 
         /// <summary>
         /// search element in hashtable
         /// </summary>
         /// <param name="element"></param>
-        public void Search(string element)
+        public bool Search(string element)
         {
-            if (hash[hashFunction(element)].Find(element))
-            {
-                Console.WriteLine("Found");
-            }
-            else Console.WriteLine("Not found");
+            return (hash[HashFunction(element)].Find(element));
         }
 
         /// <summary>

@@ -17,9 +17,9 @@ namespace HashTable
             tmp.Add("treerered");
             tmp.Add("trep");
             tmp.Add("123");
-            tmp.Search("pert");
+            Console.WriteLine(tmp.Search("pert"));
             tmp.Print();
-            tmp.Delete("123");
+            Console.WriteLine(tmp.Delete("123"));
             tmp.Print();
         }
     }
