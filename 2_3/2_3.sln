@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2_3", "2_3\2_3.csproj", "{BDF16033-9979-4EFC-9822-261C1470CC67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTesHash", "UnitTesHash\UnitTesHash.csproj", "{985ED980-D991-442A-8178-8FE5E70C01A7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BDF16033-9979-4EFC-9822-261C1470CC67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDF16033-9979-4EFC-9822-261C1470CC67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDF16033-9979-4EFC-9822-261C1470CC67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDF16033-9979-4EFC-9822-261C1470CC67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{985ED980-D991-442A-8178-8FE5E70C01A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{985ED980-D991-442A-8178-8FE5E70C01A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{985ED980-D991-442A-8178-8FE5E70C01A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{985ED980-D991-442A-8178-8FE5E70C01A7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
