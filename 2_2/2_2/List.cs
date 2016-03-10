@@ -118,7 +118,7 @@ namespace ListNamespace
         /// remove element from position
         /// </summary>
         /// <param name="index"></param>
-        public void RemomeAt(int index)
+        public void RemoveAt(int index)
         {
             if (head == null)
                 return;

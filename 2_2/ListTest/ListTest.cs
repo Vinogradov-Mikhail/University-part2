@@ -10,7 +10,7 @@ namespace ListTest
         private List tmp;
 
         [TestInitialize]
-        public void Inizialaze()
+        public void Inizialize()
         {
             tmp = new List();
         }
@@ -40,14 +40,27 @@ namespace ListTest
         }
 
         [TestMethod]
-        public void InIndexAndREmoveAtTEst()
+        public void InIndexAndRemoveAtTEst()
         {
             tmp.InIndex(1, 2);
             tmp.InIndex(0, 1);
             Assert.AreEqual(2, tmp.Pop(2));
             tmp.InIndex(2, 3);
-            tmp.RemomeAt(2);
+            tmp.RemoveAt(2);
             Assert.AreEqual(3, tmp.Pop(3));
+        }
+
+        [TestMethod]
+        public void GetElementTest()
+        {
+            tmp.Push(1);
+            tmp.Push(232);
+            tmp.Push(12);
+            tmp.Push(3);
+            tmp.Push(4);
+            tmp.Push(554);
+            tmp.Push(12);
+            Assert.AreEqual(12, tmp.GetElement(0));
         }
     }
 }

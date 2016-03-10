@@ -18,7 +18,7 @@ namespace ListNamespace
             tmp.Print();
             tmp.InIndex(2, 3);
             tmp.Print();
-            tmp.RemomeAt(1);
+            tmp.RemoveAt(1);
             tmp.Print();
         }
     }
