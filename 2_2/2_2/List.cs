@@ -12,7 +12,7 @@ namespace ListNamespace
     public class List
     {
         /// <summary>
-        /// class for element of stack
+        /// class for element of list
         /// </summary>
         class Element
         {
@@ -20,7 +20,7 @@ namespace ListNamespace
             public Element Next { get; set; }
 
             /// <summary>
-            /// constructor for stack element
+            /// constructor for list element
             /// </summary>
             /// <param name="_value"></param>
             /// <param name="next"></param>
@@ -31,24 +31,21 @@ namespace ListNamespace
             }
         }
         private Element head = null;// new Element();
-        private int _count;
 
         /// <summary>
-        /// stack constructor 
+        /// list constructor 
         /// </summary>
         public List()
         {
-            _count = -1;
         }
 
         /// <summary>
-        /// add element in stack
+        /// add element in list
         /// </summary>
         /// <param name="value"></param> 
         public void Push(int value)
         {
             head = new Element(value, head);
-            ++_count;
         }
 
         /// <summary>
@@ -73,7 +70,6 @@ namespace ListNamespace
         /// <param name="value"></param>
         public void InIndex(int index, int value)
         {
-            ++_count;
             if ((head == null) || (index == 0))
             {
                 head = new Element(value, head);
@@ -101,7 +97,6 @@ namespace ListNamespace
             {
                 int tmp = head.Value;
                 head = head.Next;
-                --_count;
                 return tmp;
             }
             Element temp = head;
@@ -112,7 +107,6 @@ namespace ListNamespace
                 if (temp.Value == elem)
                 {
                     secondTemp.Next = temp.Next;
-                    --_count;
                     return temp.Value;
                 }
                 secondTemp = temp;
@@ -132,7 +126,6 @@ namespace ListNamespace
             {
                 int tmp = head.Value;
                 head = head.Next;
-                --_count;
             }
             Element temp = head;
             Element secondTemp = head;
@@ -143,7 +136,6 @@ namespace ListNamespace
                 if (i == index)
                 {
                     secondTemp.Next = temp.Next;
-                    --_count;
                 }
                 secondTemp = temp;
                 ++i;
@@ -152,10 +144,11 @@ namespace ListNamespace
         }
 
         /// <summary>
-        /// print all stack
+        /// print all list
         /// </summary>
         public void Print()
         {
+            Console.WriteLine();
             Element tmp = head;
             do
             {
@@ -172,7 +165,7 @@ namespace ListNamespace
         public bool Find(int element)
         {
             Element tmp = head;
-            for (int i = 0; i <= _count; ++i)
+            while (tmp.Next != null)
             {
                 if (tmp.Value == element)
                 {
