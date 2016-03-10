@@ -43,9 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HashTableOne.cs" />
-    <Compile Include="HashTableTwo.cs" />
-    <Compile Include="IHash.cs" />
+    <Compile Include="HashTable.cs" />
+    <Compile Include="HashFunctionOne.cs" />
+    <Compile Include="HashFunctionTwo.cs" />
+    <Compile Include="IHashFunction.cs" />
     <Compile Include="List.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -6,38 +6,21 @@ using System.Threading.Tasks;
 
 namespace HashTableNamespace
 {
-    public class HashTwo : IHash
+    public class Hash 
     {
         private static int N = 1000;
         private List[] hash = new List[N];
-
+        private IHashFunction hashF;
         /// <summary>
         /// constructor for hashtable
         /// </summary>
-        public HashTwo()
+        public Hash(IHashFunction getHashFunction)
         {
+            hashF = getHashFunction;
             for (int i = 0; i < N; ++i)
             {
                 hash[i] = new List();
             }
-        }
-
-        /// <summary>
-        /// make hash function
-        /// </summary>
-        /// <param name="element"></param>
-        /// <returns></returns>
-        public int hashFunction(string element)
-        {
-            int symb = 0;
-            for (int i = 0; i < element.Length; i++)
-            {
-                symb += element[i];
-
-            }
-            symb *= symb;
-            symb >>= 11;
-            return symb % 1024; 
         }
 
         /// <summary>
@@ -46,33 +29,25 @@ namespace HashTableNamespace
         /// <param name="element"></param>
         public void Add(string element)
         {
-            hash[hashFunction(element)].Push(element);
+            hash[hashF.HashFunction(element)].Push(element);
         }
 
         /// <summary>
         /// delete element from hashtable
         /// </summary>
         /// <param name="element"></param>
-        public void Delete(string element)
+        public bool Delete(string element)
         {
-            if (hash[hashFunction(element)].Pop(element) != "")
-            {
-                Console.WriteLine("Delete");
-            }
-            else Console.WriteLine("Not found");
+            return (hash[hashF.HashFunction(element)].Pop(element) != "");
         }
 
         /// <summary>
         /// search element in hashtable
         /// </summary>
         /// <param name="element"></param>
-        public void Search(string element)
+        public bool Search(string element)
         {
-            if (hash[hashFunction(element)].Find(element))
-            {
-                Console.WriteLine("Found");
-            }
-            else Console.WriteLine("Not found");
+            return (hash[hashF.HashFunction(element)].Find(element));
         }
 
         /// <summary>
@@ -90,5 +65,4 @@ namespace HashTableNamespace
             }
         }
     }
-
 }

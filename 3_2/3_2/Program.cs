@@ -11,23 +11,23 @@ namespace HashTableNamespace
     {
         static void Main(string[] args)
         {
-            IHash tmp;
+            Hash tmp;
             WriteLine(" Choose 1 or 2 variant of hash-function");
             int number = int.Parse(ReadLine());
             if (number == 1)
             {
-                tmp = new HashOne();
+                tmp = new Hash(new HashFunctionOne());
             }
-            else tmp = new HashTwo();
+            else tmp = new Hash(new HashFunctionTwo());
             tmp.Add("trep");
             tmp.Add("pert");
             tmp.Add("trop");
             tmp.Add("treerered");
             tmp.Add("trep");
             tmp.Add("123");
-            tmp.Search("pert");
+            Console.WriteLine(tmp.Search("pert"));
             tmp.Print();
-            tmp.Delete("123");
+            Console.WriteLine(tmp.Delete("123"));
             tmp.Print();
         }
     }

@@ -5,24 +5,6 @@ using HashTableNamespace;
 namespace HashTableNamespace.Test
 {
     [TestClass]
-    public class HashTableTest
-    {
-        private HashOne tmp;
-
-        [TestInitialize]
-        public void Inizialaze()
-        {
-            tmp = new HashOne();
-        }
-
-        [TestMethod]
-        public void HashFunctionTest()
-        {
-            Assert.AreEqual(443, tmp.hashFunction("trep"));
-        }
-    }
-
-    [TestClass]
     public class ListTest
     {
         private List tmp;
