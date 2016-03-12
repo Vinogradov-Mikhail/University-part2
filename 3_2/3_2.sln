@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3_2", "3_2\3_2.csproj", "{EED0801B-0A52-493B-B45F-8FD1BD96848B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HashTest", "HashTest\HashTest.csproj", "{480143DC-F170-4D6B-B107-4258385879D9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EED0801B-0A52-493B-B45F-8FD1BD96848B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EED0801B-0A52-493B-B45F-8FD1BD96848B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EED0801B-0A52-493B-B45F-8FD1BD96848B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EED0801B-0A52-493B-B45F-8FD1BD96848B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{480143DC-F170-4D6B-B107-4258385879D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{480143DC-F170-4D6B-B107-4258385879D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{480143DC-F170-4D6B-B107-4258385879D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{480143DC-F170-4D6B-B107-4258385879D9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
