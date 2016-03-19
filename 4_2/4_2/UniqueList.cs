@@ -15,24 +15,24 @@ namespace UniqueListNamespace
         /// add element in UniqueList. Throw exception if list have this value
         /// </summary>
         /// <param name="number"></param>
-        public void Add(int number)
+        override public void Add(int number)
         {
             if (Find(number))
             {
                 throw new ULAddAvailableElement("Try add another element, because this element available in list");
             }
-            else Push(number);
+            else Add(number);
         }
 
         /// <summary>
         /// delete element from UniqueList. Throw exception if list doesn't have this value
         /// </summary>
         /// <param name="number"></param>
-        public void Delete(int number)
+        override public int Delete(int number)
         {
             if (Find(number))
-            {
-                Pop(number);
+            {    
+                return Delete(number);
             }
             else throw new ULDeleteNotAvailableElement("Try delete another element, because this element not available in list");
         }

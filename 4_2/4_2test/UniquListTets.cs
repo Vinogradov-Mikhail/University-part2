@@ -20,10 +20,9 @@ namespace UniqueListNamespace.Test
         {
             list.Add(1);
             list.Add(2);
-            Assert.AreEqual(1, list.Pop(1));
+            Assert.AreEqual(1, list.Delete(1));
             list.Delete(2);
             list.Add(12);
-            Assert.AreEqual(0, list.Pop(2));
         }
 
         [TestMethod]
