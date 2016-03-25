@@ -51,5 +51,26 @@ namespace QueueNamespace.Test
             queue.DeQueue();
             queue.DeQueue();
         }
+
+        [TestMethod]
+        public void AllTest()
+        {
+            queue.EnQueue(1, 2);
+            queue.EnQueue(3, 2);
+            queue.EnQueue(77, 5);
+            queue.EnQueue(213, 1);
+            queue.EnQueue(13, 2);
+            queue.EnQueue(12, 2);
+            queue.EnQueue(1222, 2);
+            queue.EnQueue(12, 2);
+            Assert.AreEqual(true, queue.Find(77));
+            Assert.AreEqual(3, queue.GetElement(3));
+            queue.EnQueue(213, 1);
+            queue.EnQueue(13, 2);
+            queue.EnQueue(13232, 2);
+            Assert.AreEqual(213, queue.DeQueue());
+            queue.DeQueue();
+            Assert.AreNotEqual(213, queue.DeQueue());
+        }
     }
 }
