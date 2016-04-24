@@ -180,7 +180,7 @@ namespace ListNamespace
         /// </summary>
         /// <param name="element"></param>
         /// <returns></returns>
-        public bool Find(int element)
+        public bool Find(T element)
         {
             Element tmp = head;
             for (int i = 0; i <= _count; ++i)
