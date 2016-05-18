@@ -12,6 +12,9 @@ using System.Windows.Shapes;
 
 namespace _10_1
 {
+    /// <summary>
+    /// Main program class
+    /// </summary>
     public partial class MainPage : UserControl
     {
         private readonly Button[] buttons;
