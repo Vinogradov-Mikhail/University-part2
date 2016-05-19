@@ -12,6 +12,9 @@ using System.Windows.Shapes;
 
 namespace _10_1
 {
+    /// <summary>
+    /// Main program class
+    /// </summary>
     public partial class MainPage : UserControl
     {
         private readonly Button[] buttons;
@@ -43,29 +46,34 @@ namespace _10_1
         {
             var button = sender as Button;
             setBitten(button, "X");
-            setBitten(buttons[RandomButton()], "O");
-
+            setBitten(RandomButton(), "O");
         }
 
         /// <summary>
         /// find random number of button from free buttons
         /// </summary>
         /// <returns></returns>
-        private int RandomButton()
+        private Button RandomButton()
         {
-            int[] freeButtotArray = new int[8]; 
-            int j = 0;
-            for (int i = 0; i < 8; ++i)
+            var rand = new Random((int)DateTime.Now.Ticks);
+            var randInt = rand.Next(0, 9);
+            while (!buttons[randInt].IsEnabled)
             {
-                if(buttons[i].IsEnabled == true)
+                randInt = rand.Next(0, 9);
+            }
+            return buttons[randInt];
+        }
+
+        private bool AllDisabled()
+        {
+            for (int i = 0; i < 9; ++i)
+            {
+                if (buttons[i].IsEnabled)
                 {
-                    freeButtotArray[j] = i;
-                    ++j;
+                    return false;
                 }
             }
-            Random rnd = new Random();
-            int randomNum = rnd.Next(j);
-            return freeButtotArray[randomNum];
+            return true;
         }
 
         /// <summary>
@@ -83,12 +91,14 @@ namespace _10_1
                 || ((buttons[0].Content.ToString() == player) && (buttons[4].Content.ToString() == player) && (buttons[8].Content.ToString() == player))
                 || ((buttons[2].Content.ToString() == player) && (buttons[4].Content.ToString() == player) && (buttons[6].Content.ToString() == player)))
             {
-                for (int i = 0; i < 9; ++i)
-                {                  
-                    buttons[i].Content = "0";
-                    buttons[i].IsEnabled = false;
-                }
                 buttons[4].Content = "Player " + player + " win";
+            }
+            else
+            {
+                if (AllDisabled())
+                {
+                    buttons[4].Content = "Draw";
+                }
             }
         }
 
