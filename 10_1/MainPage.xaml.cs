@@ -46,7 +46,10 @@ namespace _10_1
         {
             var button = sender as Button;
             setBitten(button, "X");
-            setBitten(RandomButton(), "O");
+            if (!AllDisabled())
+            {
+                setBitten(RandomButton(), "O");
+            }
         }
 
         /// <summary>
@@ -91,6 +94,10 @@ namespace _10_1
                 || ((buttons[0].Content.ToString() == player) && (buttons[4].Content.ToString() == player) && (buttons[8].Content.ToString() == player))
                 || ((buttons[2].Content.ToString() == player) && (buttons[4].Content.ToString() == player) && (buttons[6].Content.ToString() == player)))
             {
+                foreach (var button in buttons)
+                {
+                    button.IsEnabled = false;
+                }
                 buttons[4].Content = "Player " + player + " win";
             }
             else
