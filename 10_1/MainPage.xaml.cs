@@ -13,7 +13,7 @@ using System.Windows.Shapes;
 namespace _10_1
 {
     /// <summary>
-    /// Main program class
+    /// Main program class lololol
     /// </summary>
     public partial class MainPage : UserControl
     {
