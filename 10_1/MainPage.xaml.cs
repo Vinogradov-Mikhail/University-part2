@@ -1,0 +1,117 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
+using System.Windows.Shapes;
+
+namespace _10_1
+{
+    /// <summary>
+    /// Main program class
+    /// </summary>
+    public partial class MainPage : UserControl
+    {
+        private readonly Button[] buttons;
+
+        /// <summary>
+        /// Initialization 
+        /// </summary>
+        public MainPage()
+        {
+            InitializeComponent();
+            buttons = new Button[9];
+            buttons[0] = _11;
+            buttons[1] = _12;
+            buttons[2] = _13;
+            buttons[3] = _21;
+            buttons[4] = _22;
+            buttons[5] = _23;
+            buttons[6] = _31;
+            buttons[7] = _32;
+            buttons[8] = _33;
+        }
+
+        /// <summary>
+        /// method for players click on button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void PlayersMove(object sender, RoutedEventArgs e)
+        {
+            var button = sender as Button;
+            setBitten(button, "X");
+            setBitten(RandomButton(), "O");
+        }
+
+        /// <summary>
+        /// find random number of button from free buttons
+        /// </summary>
+        /// <returns></returns>
+        private Button RandomButton()
+        {
+            var rand = new Random((int)DateTime.Now.Ticks);
+            var randInt = rand.Next(0, 9);
+            while (!buttons[randInt].IsEnabled)
+            {
+                randInt = rand.Next(0, 9);
+            }
+            return buttons[randInt];
+        }
+
+        private bool AllDisabled()
+        {
+            for (int i = 0; i < 9; ++i)
+            {
+                if (buttons[i].IsEnabled)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// checking board for finding wininig line
+        /// </summary>
+        /// <param name="player"></param>
+        private void WinCheck(string player)
+        {
+            if((buttons[0].Content.ToString() == player) && (buttons[1].Content.ToString() == player) && (buttons[2].Content.ToString() == player)
+                || ((buttons[3].Content.ToString() == player) && (buttons[4].Content.ToString() == player) && (buttons[5].Content.ToString() == player))
+                || ((buttons[6].Content.ToString() == player) && (buttons[7].Content.ToString() == player) && (buttons[8].Content.ToString() == player))
+                || ((buttons[0].Content.ToString() == player) && (buttons[3].Content.ToString() == player) && (buttons[6].Content.ToString() == player))
+                || ((buttons[1].Content.ToString() == player) && (buttons[4].Content.ToString() == player) && (buttons[7].Content.ToString() == player))
+                || ((buttons[2].Content.ToString() == player) && (buttons[5].Content.ToString() == player) && (buttons[8].Content.ToString() == player))
+                || ((buttons[0].Content.ToString() == player) && (buttons[4].Content.ToString() == player) && (buttons[8].Content.ToString() == player))
+                || ((buttons[2].Content.ToString() == player) && (buttons[4].Content.ToString() == player) && (buttons[6].Content.ToString() == player)))
+            {
+                buttons[4].Content = "Player " + player + " win";
+            }
+            else
+            {
+                if (AllDisabled())
+                {
+                    buttons[4].Content = "Draw";
+                }
+            }
+        }
+
+        /// <summary>
+        /// method for checkin button text 
+        /// </summary>
+        /// <param name="button"></param>
+        /// <param name="player"></param>
+        private void setBitten(Button button, string player)
+        {
+            button.Content = player;
+            button.IsEnabled = false;
+            WinCheck(player);
+        }
+    }
+}
