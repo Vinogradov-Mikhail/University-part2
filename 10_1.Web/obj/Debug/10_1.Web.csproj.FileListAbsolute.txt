@@ -1,6 +1,0 @@
-C:\Users\Михаил\Documents\Visual Studio 2015\Projects\UnrealPart2\10_1\10_1.Web\bin\10_1.Web.dll.config
-C:\Users\Михаил\Documents\Visual Studio 2015\Projects\UnrealPart2\10_1\10_1.Web\bin\10_1.Web.dll
-C:\Users\Михаил\Documents\Visual Studio 2015\Projects\UnrealPart2\10_1\10_1.Web\bin\10_1.Web.pdb
-C:\Users\Михаил\Documents\Visual Studio 2015\Projects\UnrealPart2\10_1\10_1.Web\obj\Debug\10_1.Web.csprojResolveAssemblyReference.cache
-C:\Users\Михаил\Documents\Visual Studio 2015\Projects\UnrealPart2\10_1\10_1.Web\obj\Debug\10_1.Web.dll
-C:\Users\Михаил\Documents\Visual Studio 2015\Projects\UnrealPart2\10_1\10_1.Web\obj\Debug\10_1.Web.pdb
