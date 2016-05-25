@@ -12,14 +12,15 @@ namespace _7_2.test
         [TestInitialize]
         public void Inizialize()
         {
-            temp = new Variety<int>(0);
-            tempTwo = new Variety<int>(0);
+            temp = new Variety<int>();
+            tempTwo = new Variety<int>();
         }
 
         [TestMethod]
         public void AddAndFoundTest()
         {
             temp.Add(1);
+            Assert.IsTrue(temp.Include(1));
             temp.Add(3);
             temp.Add(1);
             temp.Add(6);

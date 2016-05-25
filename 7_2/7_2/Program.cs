@@ -10,21 +10,12 @@ namespace _7_2
     {
         static void Main(string[] args)
         {
-            Variety<int> get = new Variety<int>(0);
-            Variety<int> get2 = new Variety<int>(0);
-            get.Add(1);
-            get.Add(2);
-            get.Add(1);
-            get.Add(1);
-            get2.Add(1);
-            get2.Add(2);
-            get2.Add(0);
-            get.Show();
-            Console.WriteLine();
-            get2.Show();
-            Console.WriteLine();
-            get = get.Intersection(get, get2);
-            get.Show();
+            Variety<int> temp = new Variety<int>();
+            Variety<int> tempTwo = new Variety<int>();
+            temp.Add(1);
+            //Console.Write(temp.list.Length());
+            temp = temp.Association(temp, tempTwo);
+            temp.Show();
         }
     }
 }

@@ -14,9 +14,9 @@ namespace _7_2
     {
         private List<T> list;
 
-        public Variety(T value)
+        public Variety()
         {
-            list = new List<T>(value);
+            list = new List<T>();
         }
 
         /// <summary>
@@ -26,10 +26,10 @@ namespace _7_2
         public void Add(T value) => list.Push(value);
 
         /// <summary>
-        /// delete element from variety
+        /// delete elment from variety
         /// </summary>
         /// <param name="value"></param>
-        public void Delete(T value) => list.Pop(value);
+        public void Pop(T value) => list.Pop(value);
 
         /// <summary>
         /// cheking including element 
@@ -50,6 +50,12 @@ namespace _7_2
         public List<T> Getlist() => list;
 
         /// <summary>
+        /// return emount of elements
+        /// </summary>
+        /// <returns></returns>
+        public int GetEmount() => list.Length();
+
+        /// <summary>
         /// Association of two variety
         /// </summary>
         /// <param name="first"></param>
@@ -59,11 +65,14 @@ namespace _7_2
         {
             Variety<T> temp = first;
             List<T> tempList = second.Getlist();
-            foreach(T elem in tempList)
+            if (second.list != null)
             {
-                if(!temp.Include(elem))
+                for (int i = 0; i < tempList.Length(); ++i)
                 {
-                    temp.Add(elem);
+                    if (!temp.Include(tempList.GetElement(i)))
+                    {
+                        temp.Add(tempList.GetElement(i));
+                    }
                 }
             }
             return temp;
@@ -77,13 +86,13 @@ namespace _7_2
         /// <returns></returns>
         public Variety<T> Intersection(Variety<T> first, Variety<T> second)
         {
-            Variety<T> temp = first;
-            List<T> tempList = temp.Getlist();
-            foreach (T elem in tempList)
+            Variety<T> temp = new Variety<T>();
+            List<T> tempList = first.Getlist();
+            for (int i = 0; i < tempList.Length(); ++i)
             {
-                if (!second.Include(elem))
+                if (second.Include(tempList.GetElement(i)))
                 {
-                    temp.Delete(elem);
+                    temp.Add(tempList.GetElement(i));
                 }
             }
             return temp;

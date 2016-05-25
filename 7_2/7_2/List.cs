@@ -10,7 +10,7 @@ namespace _7_2
     /// <summary>
     /// generic class for list
     /// </summary>
-    public class List<T> : IEnumerable
+    public class List<T>
     {
         /// <summary>
         /// class for element of stack
@@ -25,22 +25,20 @@ namespace _7_2
             /// </summary>
             /// <param name="_value"></param>
             /// <param name="next"></param>
-            public Element(T value, Element next = null)
+            public Element(T value)
             {
                 this.Value = value;
-                this.Next = next;
             }
         }
         private Element head;// new Element(null, null);
         private int _count;
 
         /// <summary>
-        /// stack constructor 
+        /// constructor
         /// </summary>
-        public List(T value)
+        public List()
         {
-            head = new Element(value, null);
-            _count = -1;
+            _count = -1;            
         }
 
         /// <summary>
@@ -58,46 +56,17 @@ namespace _7_2
         /// <param name="value"></param> 
         public void Push(T value)
         {
-            head = new Element(value, head);
+            var temp = new Element(value);
+            if (_count == -1)
+            {
+                head = temp;
+            }
+            else
+            {
+                temp.Next = head;
+                head = temp;
+            }
             ++_count;
-        }
-
-        /// <summary>
-        /// get element from position
-        /// </summary>
-        /// <param name="index"></param>
-        /// <returns></returns>
-        public T GetElement(int index)
-        {
-            Element temp = head;
-            for (int i = 0; temp.Next != null & i < index - 1; ++i)
-            {
-                temp = temp.Next;
-            }
-            return temp.Value;
-        }
-
-        /// <summary>
-        /// add element in postion
-        /// </summary>
-        /// <param name="index"></param>
-        /// <param name="value"></param>
-        public void InIndex(int index, T value)
-        {
-            ++_count;
-            if ((head == null) || (index == 0))
-            {
-                head = new Element(value, head);
-                return;
-            }
-            Element newElem = new Element(value, null);
-            Element temp = head;
-            for(int i = 0; temp.Next != null & i < index - 1; ++i)
-            {
-                temp = temp.Next;
-            }
-            newElem.Next = temp.Next;
-            temp.Next = newElem; 
         }
 
         /// <summary>
@@ -132,34 +101,18 @@ namespace _7_2
         }
 
         /// <summary>
-        /// remove element from position
+        /// get element from position
         /// </summary>
         /// <param name="index"></param>
-        public void RemomeAt(int index)
+        /// <returns></returns>
+        public T GetElement(int index)
         {
-            if (head == null)
-                return;
-            if (index == 0)
-            {
-                T tmp = head.Value;
-                head = head.Next;
-                --_count;
-            }
             Element temp = head;
-            Element secondTemp = head;
-            int i = 1;
-            while (temp.Next != null)
+            for (int i = 0; temp.Next != null & i < index - 1; ++i)
             {
                 temp = temp.Next;
-                if (i == index)
-                {
-                    secondTemp.Next = temp.Next;
-                    --_count;
-                }
-                secondTemp = temp;
-                ++i;
             }
-            return;
+            return temp.Value;
         }
 
         /// <summary>
@@ -168,11 +121,11 @@ namespace _7_2
         public void Print()
         {
             Element tmp = head;
-            while (tmp.Next != null)
+            while (tmp != null)
             {
                 Console.Write(tmp.Value + " ");
                 tmp = tmp.Next;
-            } 
+            }
         }
 
         /// <summary>
@@ -183,7 +136,7 @@ namespace _7_2
         public bool Find(T element)
         {
             Element tmp = head;
-            for (int i = 0; i <= _count; ++i)
+            while(tmp != null)
             {
                 if (tmp.Value.Equals(element))
                 {
@@ -192,92 +145,6 @@ namespace _7_2
                 tmp = tmp.Next;
             }
             return false;
-        }
-
-        /// <summary>
-        /// implementation for the GetEnumerator method
-        /// </summary>
-        /// <returns></returns>
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return (IEnumerator)GetEnumerator();
-        }
-        
-        /// <summary>
-        /// enumerator for list
-        /// </summary>
-        /// <returns></returns>
-        public ListEnum GetEnumerator()
-        {
-            return new ListEnum(this);
-        }
-
-        /// <summary>
-        /// class for list enumerator
-        /// </summary>
-        public class ListEnum : IEnumerator
-        {
-            private List<T> head;
-            private Element elem = null;
-            private int position = -1;
-
-            /// <summary>
-            /// constuctor
-            /// </summary>
-            /// <param name="head"></param>
-            public ListEnum(List<T> head)
-            {
-                this.head = head;
-            }
-
-            /// <summary>
-            /// move to the next element of list
-            /// </summary>
-            /// <returns></returns>
-            public bool MoveNext()
-            {
-                position++;
-                elem = elem == null ? head.head : elem.Next;
-                return (position < head.Length());
-            }
-
-            /// <summary>
-            /// reset enumerator
-            /// </summary>
-            public void Reset()
-            {
-                elem = null;
-                position = -1;
-            }
-
-            /// <summary>
-            ///  return current value of list in enumerator
-            /// </summary>
-            object IEnumerator.Current
-            {
-                get
-                {
-                    return Current;
-                }
-            }
-
-            /// <summary>
-            /// return current value of list
-            /// </summary>
-            public T Current
-            {
-                get
-                {
-                    try
-                    {
-                        return elem.Value;
-                    }
-                    catch (IndexOutOfRangeException)
-                    {
-                        throw new InvalidOperationException();
-                    }
-                }
-            }
         }
 
     }
