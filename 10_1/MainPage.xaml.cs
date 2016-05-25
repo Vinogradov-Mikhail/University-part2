@@ -89,14 +89,15 @@ namespace _10_1
         /// <param name="player"></param>
         private void WinCheck(string player)
         {
-            if ((buttons[0].Content.ToString() == player) && (buttons[1].Content.ToString() == player) && (buttons[2].Content.ToString() == player)
-                || ((buttons[3].Content.ToString() == player) && (buttons[4].Content.ToString() == player) && (buttons[5].Content.ToString() == player))
-                || ((buttons[6].Content.ToString() == player) && (buttons[7].Content.ToString() == player) && (buttons[8].Content.ToString() == player))
-                || ((buttons[0].Content.ToString() == player) && (buttons[3].Content.ToString() == player) && (buttons[6].Content.ToString() == player))
-                || ((buttons[1].Content.ToString() == player) && (buttons[4].Content.ToString() == player) && (buttons[7].Content.ToString() == player))
-                || ((buttons[2].Content.ToString() == player) && (buttons[5].Content.ToString() == player) && (buttons[8].Content.ToString() == player))
-                || ((buttons[0].Content.ToString() == player) && (buttons[4].Content.ToString() == player) && (buttons[8].Content.ToString() == player))
-                || ((buttons[2].Content.ToString() == player) && (buttons[4].Content.ToString() == player) && (buttons[6].Content.ToString() == player)))
+            System.Func<int, bool> chek = i => buttons[i].Content.ToString() == player;
+            if ((chek(0) && chek(1) && chek(2))
+                || (chek(3) && chek(4) && chek(5))
+                || (chek(6) && chek(7) && chek(8))
+                || (chek(0) && chek(3) && chek(6))
+                || (chek(1) && chek(4) && chek(7))
+                || (chek(2) && chek(5) && chek(8))
+                || (chek(0) && chek(4) && chek(8))
+                || (chek(2) && chek(4) && chek(8)))
             {
                 foreach (var button in buttons)
                 {
